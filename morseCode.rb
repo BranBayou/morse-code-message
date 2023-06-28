@@ -28,9 +28,7 @@ class MorseDecoder
     '--..' => 'Z'
   }
 
-  def self.decode_char(morse_char)
-    Dictionary[morse_char] || ''
-  end
+  
 
   def self.decode_word(morse_word)
     decoded_word = ''
