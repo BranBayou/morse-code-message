@@ -28,8 +28,8 @@ class MorseDecoder
     '--..' => 'Z'
   }
 
-  
 
+  
   def self.decode_word(morse_word)
     decoded_word = ''
     morse_chars = morse_word.split
@@ -51,4 +51,8 @@ class MorseDecoder
   end
 end
 
+# Sample decoding 
+morse_message = ".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ..." 
+decoded_message = MorseDecoder.decode_message(morse_message) 
+puts decoded_message
 
