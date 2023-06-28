@@ -1,57 +1,56 @@
-class MorseCodeDecoder:
-  MORSE_CODE_DICT = {
-      '.-' => 'A',
-      '-...' => 'B',
-      '-.-.' => 'C', 
-      '-..' => 'D', 
-      '.' => 'E',
-      '..-.' => 'F',
-      '--.' => 'G',
-      '....' => 'H',
-      '..' => 'I', 
-      '.---' => 'J',
-      '-.-' => 'K',
-      '.-..' => 'L',
-      '--' => 'M', 
-      '-.' => 'N', 
-      '---' => 'O', 
-      '.--.' => 'P', 
-      '--.-' => 'Q', 
-      '.-.' => 'R',
-      '...' => 'S', 
-      '-' => 'T', 
-      '..-' => 'U', 
-      '...-' => 'V', 
-      '.--' => 'W', 
-      '-..-' => 'X',
-      '-.--' => 'Y', 
-      '--..' => 'Z'
+class MorseDecoder
+  Dictionary = {
+    '.-' => 'A',
+    '-...' => 'B',
+    '-.-.' => 'C', 
+    '-..' => 'D', 
+    '.' => 'E',
+    '..-.' => 'F',
+    '--.' => 'G',
+    '....' => 'H',
+    '..' => 'I', 
+    '.---' => 'J',
+    '-.-' => 'K',
+    '.-..' => 'L',
+    '--' => 'M', 
+    '-.' => 'N', 
+    '---' => 'O', 
+    '.--.' => 'P', 
+    '--.-' => 'Q', 
+    '.-.' => 'R',
+    '...' => 'S', 
+    '-' => 'T', 
+    '..-' => 'U', 
+    '...-' => 'V', 
+    '.--' => 'W', 
+    '-..-' => 'X',
+    '-.--' => 'Y', 
+    '--..' => 'Z'
   }
 
-  @staticmethod
-  def decode_char(morse_char):
-      return MorseCodeDecoder.MORSE_CODE_DICT.get(morse_char, '')
+  def self.decode_char(morse_char)
+    Dictionary[morse_char] || ''
+  end
 
-  @staticmethod
-  def decode_word(morse_word):
-      morse_chars = morse_word.split()
-      decoded_word = ''
-      for morse_char in morse_chars:
-          decoded_char = MorseCodeDecoder.decode_char(morse_char)
-          decoded_word += decoded_char
-      return decoded_word
+  def self.decode_word(morse_word)
+    decoded_word = ''
+    morse_chars = morse_word.split
+    morse_chars.each do |morse_char|
+      decoded_char = decode_char(morse_char)
+      decoded_word += decoded_char
+    end
+    decoded_word
+  end
 
-  @staticmethod
-  def decode_message(morse_message):
-      morse_words = morse_message.split('   ')
-      decoded_message = ''
-      for morse_word in morse_words:
-          decoded_word = MorseCodeDecoder.decode_word(morse_word)
-          decoded_message += decoded_word + ' '
-      return decoded_message.strip().upper()
+  def self.decode_message(morse_message)
+    decoded_message = ''
+    morse_words = morse_message.split('   ')
+    morse_words.each do |morse_word|
+      decoded_word = decode_word(morse_word)
+      decoded_message += decoded_word + ' '
+    end
+    decoded_message.strip.upcase
+  end
+end
 
 
-# Example usage:
-morse_message = ".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ..."
-decoded_message = MorseCodeDecoder.decode_message(morse_message)
-print(decoded_message)
