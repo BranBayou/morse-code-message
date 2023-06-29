@@ -1,35 +1,42 @@
+# frozen_string_literal: true
+
+# MorseDecoder is a class that provides methods to decode Morse code messages.
+
 class MorseDecoder
-  Dictionary = {
+  DICTIONARY = {
     '.-' => 'A',
     '-...' => 'B',
-    '-.-.' => 'C', 
-    '-..' => 'D', 
+    '-.-.' => 'C',
+    '-..' => 'D',
     '.' => 'E',
     '..-.' => 'F',
     '--.' => 'G',
     '....' => 'H',
-    '..' => 'I', 
+    '..' => 'I',
     '.---' => 'J',
     '-.-' => 'K',
     '.-..' => 'L',
-    '--' => 'M', 
-    '-.' => 'N', 
-    '---' => 'O', 
-    '.--.' => 'P', 
-    '--.-' => 'Q', 
+    '--' => 'M',
+    '-.' => 'N',
+    '---' => 'O',
+    '.--.' => 'P',
+    '--.-' => 'Q',
     '.-.' => 'R',
-    '...' => 'S', 
-    '-' => 'T', 
-    '..-' => 'U', 
-    '...-' => 'V', 
-    '.--' => 'W', 
+    '...' => 'S',
+    '-' => 'T',
+    '..-' => 'U',
+    '...-' => 'V',
+    '.--' => 'W',
     '-..-' => 'X',
-    '-.--' => 'Y', 
+    '-.--' => 'Y',
     '--..' => 'Z'
-  }
+  }.freeze
 
+  def
+    self.decode_char(morse_char)
+    DICTIONARY[morse_char] || ''
+  end
 
-  
   def self.decode_word(morse_word)
     decoded_word = ''
     morse_chars = morse_word.split
@@ -51,9 +58,7 @@ class MorseDecoder
   end
 end
 
-# Sample decoding 
-morse_message = ".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ..." 
-decoded_message = MorseDecoder.decode_message(morse_message) 
+# Sample decoding
+morse_message = '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
+decoded_message = MorseDecoder.decode_message(morse_message)
 puts decoded_message
-
-def self.decode_char(morse_char) Dictionary[morse_char] || '' end
