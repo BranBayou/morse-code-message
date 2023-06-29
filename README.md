@@ -64,7 +64,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-- cd `decode-a-morse_code`
+- cd `morse-code-message`
 - `git clone git@github.com:BranBayou/morse-code-message.git`
 
 
@@ -72,7 +72,7 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
-- cd morse_code
+- cd morse-code-message
 - bundle install
 
 ### Usage
@@ -85,7 +85,7 @@ To run the project execute the following command:
 
 To run tests, run the following command:
 
-- `rubocop --color`
+- `rubocop`
 
 
 ### Deployment
