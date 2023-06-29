@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # MorseDecoder is a class that provides methods to decode Morse code messages.
 
 class MorseDecoder
@@ -52,7 +50,7 @@ class MorseDecoder
     morse_words = morse_message.split('   ')
     morse_words.each do |morse_word|
       decoded_word = decode_word(morse_word)
-      decoded_message += decoded_word + ' '
+      decoded_message += "#{decoded_word} "
     end
     decoded_message.strip.upcase
   end
