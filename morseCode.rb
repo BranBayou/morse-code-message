@@ -56,3 +56,4 @@ morse_message = ".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -.
 decoded_message = MorseDecoder.decode_message(morse_message) 
 puts decoded_message
 
+def self.decode_char(morse_char) Dictionary[morse_char] || '' end
